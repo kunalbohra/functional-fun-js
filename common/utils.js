@@ -27,6 +27,8 @@ const replicate = curry((times, value) =>
   Array.from({ length: times }, (v, i) => value)
 );
 
+const getProp = curry((prop, obj) => obj[prop]);
+
 //all :: Foldable t => (a -> Bool) -> t a -> Bool
 const all = curry((predicate, list) => list.every(predicate));
 
@@ -39,6 +41,10 @@ const any = curry((predicate, list) => {
 const reverse = list => list.reverse();
 
 const map = curry((f, list) => list.map(f));
+
+const filter = curry((fn, list) => list.filter(fn));
+
+const reduce = curry((fn, init, list) => list.reduce(fn, init));
 
 const flat = list => list.flat();
 
@@ -72,5 +78,8 @@ module.exports = {
   listToSet,
   setToList,
   take,
-  drop
+  drop,
+  reduce,
+  getProp,
+  filter
 };
