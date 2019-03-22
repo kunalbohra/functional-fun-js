@@ -1,7 +1,7 @@
 const { compose, map, filter, getProp, reduce } = require('../common/utils');
 
 const tasksNotDone = compose(
-  map(({ id }) => id),
+  map(getProp('id')),
   filter(({ done }) => !done),
   getProp('tasks')
 );
